@@ -3,6 +3,7 @@ import {
   SelectField,
   TextField,
 } from "@/components/admin/ui/Fields";
+import DevelopersFields from "@/components/admin/properties/DevelopersFields";
 import {
   CONSTRUCTION_STATUS_OPTIONS,
   ESCROW_TOOLTIP,
@@ -30,14 +31,12 @@ export default function ProjectDetailsFields({ form, setField }) {
           placeholder="Rabdan Avenue"
           hint="Defaults to listing title on the public page if empty"
         />
-        <TextField
-          id="property-developer"
-          label="Developer"
-          value={form.developer}
-          onChange={(event) => setField("developer", event.target.value)}
-          placeholder="Rabdan Developments"
-        />
       </div>
+
+      <DevelopersFields
+        value={form.developers}
+        onChange={(developers) => setField("developers", developers)}
+      />
 
       <div className="grid gap-4 sm:grid-cols-2">
         <SelectField

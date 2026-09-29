@@ -12,6 +12,7 @@ import {
   getDevelopersServerSnapshot,
   getDevelopersSnapshot,
   loadDevelopers,
+  reorderDevelopers,
   subscribeDevelopers,
   updateDeveloper,
 } from "@/lib/admin/data/developers";
@@ -46,6 +47,10 @@ export default function useAdminDevelopers() {
   const create = useCallback((payload) => createDeveloper(payload), []);
   const update = useCallback((id, payload) => updateDeveloper(id, payload), []);
   const remove = useCallback((id) => deleteDeveloper(id), []);
+  const reorder = useCallback(
+    (orderedIds) => reorderDevelopers(orderedIds),
+    [],
+  );
 
   return {
     developers: isReady ? developers : [],
@@ -54,5 +59,6 @@ export default function useAdminDevelopers() {
     createDeveloper: create,
     updateDeveloper: update,
     deleteDeveloper: remove,
+    reorderDevelopers: reorder,
   };
 }

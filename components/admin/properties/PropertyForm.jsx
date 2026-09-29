@@ -39,6 +39,7 @@ import {
   projectDetailsToForm,
 } from "@/lib/admin/propertyDetails";
 import { amenitiesToForm } from "@/lib/admin/propertyAmenities";
+import { developersToForm } from "@/lib/admin/propertyDevelopers";
 import { unitGroupsToForm } from "@/lib/admin/propertyUnits";
 import { slugify } from "@/lib/admin/utils";
 
@@ -78,6 +79,7 @@ const EMPTY_FORM = {
   paymentDownPercent: "10",
   paymentInstallments: "24",
   paymentStartDate: "",
+  developers: [],
   ...projectDetailsToForm(DEFAULT_PROJECT_DETAILS),
 };
 
@@ -126,6 +128,7 @@ function toForm(property) {
     paymentDownPercent: String(property.paymentDownPercent ?? 10),
     paymentInstallments: String(property.paymentInstallments ?? 24),
     paymentStartDate: property.paymentStartDate || "",
+    developers: developersToForm(property.developers),
     ...projectDetailsToForm(property),
   };
 }
@@ -266,6 +269,7 @@ function PropertyEditor({
         descriptionItems: form.descriptionItems.filter((item) => item.trim()),
         amenities: form.amenities.filter((item) => item.name?.trim()),
         unitGroups: form.unitGroups.filter((item) => item.name?.trim()),
+        developers: form.developers.filter((item) => item.id),
         paymentMilestones: [],
         features: form.amenities
           .map((item) => String(item.name || "").trim())

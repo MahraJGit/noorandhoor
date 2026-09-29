@@ -171,6 +171,39 @@ h2.admin-heading {
   @apply text-sm font-normal uppercase tracking-[2.2px] text-white !font-body;
 }
 
+.developer-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.developer-marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: developer-marquee 30s linear infinite;
+}
+
+.developer-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.developer-marquee-logo {
+  position: relative;
+  flex-shrink: 0;
+  height: 4rem;
+  width: 10rem;
+  margin-inline: 2rem;
+}
+
+@keyframes developer-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;

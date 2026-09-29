@@ -7,7 +7,6 @@ import developer6 from "@/public/images/landingpage/developer6.png";
 import developer7 from "@/public/images/landingpage/developer7.png";
 import developer8 from "@/public/images/landingpage/developer8.png";
 import Image from "next/image";
-import styles from "./Developers.module.css";
 
 const DEVELOPERS = [
   { image: developer1, name: "Developer 1" },
@@ -31,12 +30,12 @@ export default function Developers() {
         <div className="mb-1 h-[4px] w-25 bg-[#B3813D]" />
       </div>
 
-      <div className={styles.marquee}>
-        <div className={styles.track}>
+      <div className="developer-marquee">
+        <div className="developer-marquee-track">
           {logos.map((developer, index) => (
             <div
               key={`${developer.name}-${index}`}
-              className={styles.logo}
+              className="developer-marquee-logo"
               aria-hidden={index >= DEVELOPERS.length}
             >
               <Image

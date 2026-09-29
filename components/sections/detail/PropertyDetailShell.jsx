@@ -8,6 +8,7 @@ import DetailAboutRent from "@/components/sections/detail/DetailAboutRent";
 import DetailFeatures from "@/components/sections/detail/DetailFeatures";
 import DetailProjectSpecs from "@/components/sections/detail/DetailProjectSpecs";
 import DetailUnitsAvailability from "@/components/sections/detail/DetailUnitsAvailability";
+import DetailDevelopers from "@/components/sections/detail/DetailDevelopers";
 import DetailRelated from "@/components/sections/detail/DetailRelated";
 import FaqSection from "@/components/common/FaqSection";
 import TeamCard from "@/components/ui/TeamCard";
@@ -27,6 +28,25 @@ import {
 } from "@/lib/admin/propertyPublic";
 import { formatDisplayDate } from "@/lib/admin/utils";
 import { buildMapExternalUrl } from "@/lib/propertyMap";
+
+function SalesOfficeSection() {
+  return (
+    <section className="px-4 pb-8 pt-0 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1280px]">
+        <div className="mb-8 pl-1 sm:mb-10 lg:pl-0">
+          <h2 className="text-left text-2xl font-semibold tracking-[0.02em] text-[#e3b76d] sm:text-3xl lg:text-[2rem]">
+            Sales Office
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {TEAM_MEMBERS.map((member) => (
+            <TeamCard key={member.id} member={member} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function detailJourneyCta(property, variant, heading) {
   const mapHref = buildMapExternalUrl({
@@ -112,6 +132,7 @@ export default function PropertyDetailShell({
           amenities={property.amenities}
           features={property.features}
         />
+        <DetailDevelopers developers={property.developers} />
         <DetailRelated
           basePath={header.breadcrumbHref}
           properties={related}
@@ -138,20 +159,8 @@ export default function PropertyDetailShell({
           amenities={property.amenities}
           features={property.features}
         />
-        <section className="px-4 pb-8 pt-0 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-[1280px]">
-            <div className="mb-8 pl-1 sm:mb-10 lg:pl-0">
-              <h2 className="text-left text-2xl font-semibold tracking-[0.02em] text-[#e3b76d] sm:text-3xl lg:text-[2rem]">
-                Sales Office
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {TEAM_MEMBERS.map((member) => (
-                <TeamCard key={member.id} member={member} />
-              ))}
-            </div>
-          </div>
-        </section>
+        <DetailDevelopers developers={property.developers} />
+        <SalesOfficeSection />
         <DetailRelated
           basePath={header.breadcrumbHref}
           properties={related}
@@ -174,20 +183,8 @@ export default function PropertyDetailShell({
         amenities={property.amenities}
         features={property.features}
       />
-      <section className="px-4 pb-8 pt-0 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-[1280px]">
-          <div className="mb-8 pl-1 sm:mb-10 lg:pl-0">
-            <h2 className="text-left text-2xl font-semibold tracking-[0.02em] text-[#e3b76d] sm:text-3xl lg:text-[2rem]">
-              Sales Office
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {TEAM_MEMBERS.map((member) => (
-              <TeamCard key={member.id} member={member} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <DetailDevelopers developers={property.developers} />
+      <SalesOfficeSection />
       <DetailRelated
         basePath={header.breadcrumbHref}
         eyebrow={relatedEyebrow || "Related Properties"}

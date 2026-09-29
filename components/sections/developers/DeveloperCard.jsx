@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 
+function watermarkClassName(name) {
+  const length = String(name || "").trim().length;
+  if (length > 20) return "text-[1.35rem] sm:text-2xl";
+  if (length > 14) return "text-2xl sm:text-3xl";
+  if (length > 9) return "text-3xl sm:text-4xl";
+  return "text-4xl sm:text-[2.75rem]";
+}
+
 export default function DeveloperCard({ developer }) {
   const {
     developerName,
@@ -29,8 +37,10 @@ export default function DeveloperCard({ developer }) {
       )}
       <div className="absolute inset-0 bg-black/60" />
       {displayName ? (
-        <div className="pointer-events-none absolute inset-x-0 top-[26%] z-10 flex -translate-y-1/2 justify-center px-4">
-          <p className="w-full text-center text-5xl font-normal uppercase leading-tight text-white [text-shadow:0_2px_5px_rgba(0,0,0,1),0_0_18px_rgba(0,0,0,0.9)] sm:text-6xl">
+        <div className="pointer-events-none absolute inset-x-0 top-[8%] bottom-[46%] z-10 flex items-center justify-center px-5">
+          <p
+            className={`w-full max-w-full text-center font-normal uppercase leading-[1.05] text-white [overflow-wrap:anywhere] [text-shadow:0_2px_5px_rgba(0,0,0,1),0_0_18px_rgba(0,0,0,0.9)] ${watermarkClassName(displayName)}`}
+          >
             {displayName}
           </p>
         </div>
