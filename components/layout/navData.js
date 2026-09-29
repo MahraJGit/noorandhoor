@@ -6,7 +6,7 @@ import {
   IconProperties,
   IconResidential,
   IconListProperty,
-  IconGuide,
+  // IconGuide,
 } from "@/components/layout/navIcons";
 
 // const RENT_NAV_ITEM = {
@@ -82,7 +82,7 @@ export const NAV_ITEMS = [
       },
       { label: "Penthouse", href: "/off-plan/penthouses", Icon: IconPenthouses },
       { label: "Townhouse", href: "/off-plan/townhouses", Icon: IconTownhouses },
-      { label: "Off plan guide", href: "/off-plan/guide", Icon: IconGuide },
+      // { label: "Off plan guide", href: "/off-plan/guide", Icon: IconGuide },
     ],
   },
   {
