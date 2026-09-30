@@ -18,7 +18,6 @@ const DEFAULT_FORM = {
   pointOne: "Active Master Communities",
   pointTwo: "Delivery Record (29,930)",
   pointThree: "Starting Price",
-  ctaUrl: "/off-plan",
 };
 
 function buildFormFromDeveloper(existingDeveloper) {
@@ -33,7 +32,6 @@ function buildFormFromDeveloper(existingDeveloper) {
     pointOne: existingDeveloper.pointOne || "Active Master Communities",
     pointTwo: existingDeveloper.pointTwo || "Delivery Record (29,930)",
     pointThree: existingDeveloper.pointThree || "Starting Price",
-    ctaUrl: existingDeveloper.ctaUrl || "/off-plan",
   };
 }
 
@@ -192,16 +190,6 @@ function DeveloperFormContent({
               />
             </div>
           </div>
-
-          <TextField
-            id="developer-cta-url"
-            label="Button URL"
-            value={form.ctaUrl}
-            onChange={(event) => updateField("ctaUrl", event.target.value)}
-            placeholder="/off-plan or https://example.com"
-            className="md:col-span-2"
-            required
-          />
         </div>
 
         <div className="flex justify-end gap-3 pt-2">

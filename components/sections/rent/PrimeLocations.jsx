@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import CardMarquee from "@/components/ui/CardMarquee";
 import LocationCard from "@/components/ui/LocationCard";
 import dubai from "@/public/images/landingpage/dubai.png";
 import abuDhabi from "@/public/images/landingpage/AbuDhabi.png";
@@ -15,37 +15,6 @@ const LOCATIONS = [
 ];
 
 export default function PrimeLocations() {
-  const scrollRef = useRef(null);
-  const dragState = useRef({ startX: 0, scrollLeft: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-
-  const handlePointerDown = (event) => {
-    const container = scrollRef.current;
-    if (!container) return;
-    container.setPointerCapture(event.pointerId);
-    setIsDragging(true);
-    dragState.current = {
-      startX: event.pageX,
-      scrollLeft: container.scrollLeft,
-    };
-  };
-
-  const handlePointerMove = (event) => {
-    if (!isDragging) return;
-    const container = scrollRef.current;
-    if (!container) return;
-    const distance = event.pageX - dragState.current.startX;
-    container.scrollLeft = dragState.current.scrollLeft - distance;
-  };
-
-  const handlePointerUp = (event) => {
-    const container = scrollRef.current;
-    if (container?.hasPointerCapture(event.pointerId)) {
-      container.releasePointerCapture(event.pointerId);
-    }
-    setIsDragging(false);
-  };
-
   return (
     <section className="section-full py-12 sm:py-14 lg:py-16">
       <div className="section-inner">
@@ -67,23 +36,17 @@ export default function PrimeLocations() {
           </div>
         </div>
 
-        <div
-          ref={scrollRef}
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
-          className={`mt-10 flex touch-none select-none gap-10 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
-        >
-          {LOCATIONS.map((location, index) => (
-            <LocationCard
-              key={`${location.name}-${index}`}
-              image={location.image}
-              name={location.name}
-              subtitle={location.subtitle}
-              width={290}
-            />
-          ))}
+        <div className="mt-10">
+          <CardMarquee duration={36}>
+            {LOCATIONS.map((location) => (
+              <LocationCard
+                key={location.name}
+                image={location.image}
+                name={location.name}
+                subtitle={location.subtitle}
+              />
+            ))}
+          </CardMarquee>
         </div>
       </div>
     </section>

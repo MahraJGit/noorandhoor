@@ -204,6 +204,66 @@ h2.admin-heading {
   }
 }
 
+.card-marquee {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  cursor: grab;
+  touch-action: pan-x;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 3%,
+    #000 97%,
+    transparent
+  );
+}
+
+.card-marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.card-marquee.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.card-marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+}
+
+.card-marquee-item {
+  flex-shrink: 0;
+  width: min(280px, calc(100vw - 3rem));
+}
+
+@media (min-width: 640px) {
+  .card-marquee-track {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-marquee-track {
+    gap: 1.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .developer-marquee-track {
+    animation: none;
+  }
+
+  .card-marquee {
+    mask-image: none;
+  }
+}
+
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;

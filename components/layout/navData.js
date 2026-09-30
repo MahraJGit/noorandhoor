@@ -3,7 +3,7 @@ import {
   IconTownhouses,
   IconPenthouses,
   IconVillas,
-  IconProperties,
+  // IconProperties,
   IconResidential,
   IconListProperty,
   // IconGuide,
@@ -63,7 +63,7 @@ export const NAV_ITEMS = [
       { label: "Buy Town houses", href: "/buy/townhouses", Icon: IconTownhouses },
       { label: "Penthouses", href: "/buy/penthouses", Icon: IconPenthouses },
       { label: "Residential Villas", href: "/buy/villas", Icon: IconVillas },
-      { label: "Buy Properties", href: "/buy/properties", Icon: IconProperties },
+      // { label: "Buy Properties", href: "/buy/properties", Icon: IconProperties },
     ],
   },
   // Hidden from header/footer for now; rent/sell pages still use these items

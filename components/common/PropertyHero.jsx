@@ -10,6 +10,10 @@ import HeroBackgroundCarousel, {
 } from "@/components/ui/HeroBackgroundCarousel";
 import { CONTACT_INFO } from "@/components/sections/contact/contactData";
 import { buildPropertyFilterFields } from "@/lib/listingFilters";
+import {
+  INVESTMENT_GUIDE_DOWNLOAD_NAME,
+  INVESTMENT_GUIDE_PDF,
+} from "@/lib/siteAssets";
 
 const STANDARD_TRUST_SIGNALS = [
   { icon: starIcon, lines: ["Rated 4.95 by", "Global Investors"] },
@@ -18,7 +22,12 @@ const STANDARD_TRUST_SIGNALS = [
 ];
 
 const DEFAULT_ACTIONS = [
-  { label: "Investment Guide", variant: "primary" },
+  {
+    label: "Investment Guide",
+    variant: "primary",
+    href: INVESTMENT_GUIDE_PDF,
+    download: INVESTMENT_GUIDE_DOWNLOAD_NAME,
+  },
 ];
 
 const HOME_FEATURES = [
@@ -253,6 +262,7 @@ export default function PropertyHero({
                   key={action.label}
                   variant={action.variant}
                   href={action.href}
+                  download={action.download}
                   className="h-14 w-full rounded-xl text-xs text-nowrap tracking-[1.3px] sm:flex-1 sm:text-sm"
                 >
                   {action.label}

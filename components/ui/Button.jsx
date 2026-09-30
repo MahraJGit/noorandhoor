@@ -5,6 +5,7 @@ const Button = ({
   href,
   target,
   rel,
+  download,
   type = "button",
   ...props
 }) => {
@@ -41,6 +42,7 @@ const Button = ({
         href={href}
         target={target ?? (isExternal ? "_blank" : undefined)}
         rel={rel ?? (isExternal ? "noreferrer" : undefined)}
+        download={download}
         className={classes}
         {...props}
       >

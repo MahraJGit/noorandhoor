@@ -1,7 +1,7 @@
 "use client";
 
+import CardMarquee from "@/components/ui/CardMarquee";
 import LocationCard from "@/components/ui/LocationCard";
-import { useRef, useState } from "react";
 import location1 from "@/public/images/landingpage/dubai.png";
 import location2 from "@/public/images/landingpage/AbuDhabi.png";
 import location3 from "@/public/images/landingpage/Sharjah.png";
@@ -21,40 +21,6 @@ const LOCATIONS = [
 ];
 
 export default function Locations() {
-  const scrollRef = useRef(null);
-  const dragState = useRef({ startX: 0, scrollLeft: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-
-  const handlePointerDown = (event) => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    container.setPointerCapture(event.pointerId);
-    setIsDragging(true);
-    dragState.current = {
-      startX: event.pageX,
-      scrollLeft: container.scrollLeft,
-    };
-  };
-
-  const handlePointerMove = (event) => {
-    if (!isDragging) return;
-
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const distance = event.pageX - dragState.current.startX;
-    container.scrollLeft = dragState.current.scrollLeft - distance;
-  };
-
-  const handlePointerUp = (event) => {
-    const container = scrollRef.current;
-    if (container?.hasPointerCapture(event.pointerId)) {
-      container.releasePointerCapture(event.pointerId);
-    }
-    setIsDragging(false);
-  };
-
   return (
     <section className="section-container">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -74,30 +40,17 @@ export default function Locations() {
         </div>
       </div>
 
-      <div
-        ref={scrollRef}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
-        className={`mt-8 lg:mt-12
-  flex touch-pan-x
-  gap-4 md:gap-6 lg:gap-8
-  overflow-x-auto
-  pb-2
-  select-none
-  snap-x snap-mandatory
-  ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
-      >
-        {LOCATIONS.map((location) => (
-          <div key={location.name} className="snap-start">
+      <div className="mt-8 lg:mt-12">
+        <CardMarquee duration={48}>
+          {LOCATIONS.map((location) => (
             <LocationCard
+              key={location.name}
               image={location.image}
               name={location.name}
               propertyCount={location.propertyCount}
             />
-          </div>
-        ))}
+          ))}
+        </CardMarquee>
       </div>
     </section>
   );

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Button from "@/components/ui/Button";
 
 function watermarkClassName(name) {
   const length = String(name || "").trim().length;
@@ -15,7 +14,6 @@ export default function DeveloperCard({ developer }) {
     title,
     name,
     image,
-    ctaUrl = "/off-plan",
     pointOne = "Active Master Communities",
     pointTwo = "Delivery Record (29,930)",
     pointThree = "Starting Price",
@@ -46,40 +44,31 @@ export default function DeveloperCard({ developer }) {
         </div>
       ) : null}
 
-      <div className="relative z-10 flex w-full flex-col items-center gap-8">
-        <div className="flex w-full flex-col items-start gap-3">
-          <h3 className="w-full text-left text-base font-semibold text-[#E9C349]">
-            {title || name}
-          </h3>
-          <div className="h-px w-full border-t-2 border-[#E9C349]" />
-          <ul className="flex w-full flex-col gap-0 text-base font-semibold capitalize leading-8 text-[#F5F5F5]">
-            <li className="flex items-center gap-1.5">
-              <span className="text-[#E9C349]" aria-hidden>
-                •
-              </span>
-              {pointOne}
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className="text-[#E9C349]" aria-hidden>
-                •
-              </span>
-              {pointTwo}
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className="text-[#E9C349]" aria-hidden>
-                •
-              </span>
-              {pointThree}
-            </li>
-          </ul>
-        </div>
-
-        <Button
-          href={ctaUrl}
-          className="h-[56px] w-full max-w-[360px] rounded-[8px] px-4 text-sm tracking-[1.66px] sm:text-base"
-        >
-          VIEW LIVE PROJECTS
-        </Button>
+      <div className="relative z-10 flex w-full flex-col items-start gap-3">
+        <h3 className="w-full text-left text-base font-semibold text-[#E9C349]">
+          {title || name}
+        </h3>
+        <div className="h-px w-full border-t-2 border-[#E9C349]" />
+        <ul className="flex w-full flex-col gap-0 text-base font-semibold capitalize leading-8 text-[#F5F5F5]">
+          <li className="flex items-center gap-1.5">
+            <span className="text-[#E9C349]" aria-hidden>
+              •
+            </span>
+            {pointOne}
+          </li>
+          <li className="flex items-center gap-1.5">
+            <span className="text-[#E9C349]" aria-hidden>
+              •
+            </span>
+            {pointTwo}
+          </li>
+          <li className="flex items-center gap-1.5">
+            <span className="text-[#E9C349]" aria-hidden>
+              •
+            </span>
+            {pointThree}
+          </li>
+        </ul>
       </div>
     </article>
   );

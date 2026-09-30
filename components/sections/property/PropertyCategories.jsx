@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import CardMarquee from "@/components/ui/CardMarquee";
 import LocationCard from "@/components/ui/LocationCard";
 import useAdminProperties from "@/hooks/useAdminProperties";
 import { navItemByHref } from "@/components/layout/navData";
@@ -96,6 +97,7 @@ export default function PropertyCategories({ market = "buy" }) {
   }, [isReady, market, properties]);
 
   const copy = COPY[market] || COPY.buy;
+  const duration = Math.max(28, categories.length * 8);
 
   return (
     <section className="section-container">
@@ -108,25 +110,24 @@ export default function PropertyCategories({ market = "buy" }) {
         </p>
       </div>
 
-      <div className="mx-auto mt-8 flex w-full max-w-[1200px] flex-wrap justify-center gap-4 sm:gap-5 lg:mt-12 lg:gap-6">
-        {categories.map((category) => (
-          <div
-            key={category.key}
-            className="w-full min-[480px]:w-[calc((100%-1.25rem)/2)] md:w-[calc((100%-2.5rem)/3)] lg:w-[calc((100%-4.5rem)/4)]"
-          >
-            <LocationCard
-              image={category.image}
-              name={category.name}
-              subtitle={
-                category.propertyCount == null
-                  ? "Loading..."
-                  : countLabel(category.propertyCount)
-              }
-              href={category.href}
-              fluid
-            />
-          </div>
-        ))}
+      <div className="mt-8 lg:mt-12">
+        {categories.length ? (
+          <CardMarquee duration={duration}>
+            {categories.map((category) => (
+              <LocationCard
+                key={category.key}
+                image={category.image}
+                name={category.name}
+                subtitle={
+                  category.propertyCount == null
+                    ? "Loading..."
+                    : countLabel(category.propertyCount)
+                }
+                href={category.href}
+              />
+            ))}
+          </CardMarquee>
+        ) : null}
       </div>
     </section>
   );

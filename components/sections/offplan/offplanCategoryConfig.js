@@ -13,6 +13,10 @@ import starIcon from "@/public/images/buy/hero/star.svg";
 import securityIcon from "@/public/images/buy/hero/security.png";
 import googleLogo from "@/public/svgs/googlelogo.svg";
 import { CONTACT_FORM_HREF } from "@/components/sections/contact/contactData";
+import {
+  INVESTMENT_GUIDE_DOWNLOAD_NAME,
+  INVESTMENT_GUIDE_PDF,
+} from "@/lib/siteAssets";
 
 export const HOMES_PER_PAGE = 9;
 export const TOTAL_PAGES = 3;
@@ -27,11 +31,17 @@ function trustSignals(items) {
 }
 
 function heroActions(labels) {
-  return labels.map((label, index) => ({
-    label,
-    variant: index === 0 ? "primary" : "outline",
-    href: CONTACT_FORM_HREF,
-  }));
+  return labels.map((label, index) => {
+    const isInvestmentGuide = label === "Investment Guide";
+    return {
+      label,
+      variant: index === 0 ? "primary" : "outline",
+      href: isInvestmentGuide ? INVESTMENT_GUIDE_PDF : CONTACT_FORM_HREF,
+      ...(isInvestmentGuide
+        ? { download: INVESTMENT_GUIDE_DOWNLOAD_NAME }
+        : {}),
+    };
+  });
 }
 
 const UAE_LOCATIONS = [
