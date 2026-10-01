@@ -16,7 +16,7 @@ import {
 export default function CardMarquee({
   children,
   className = "",
-  duration = 40,
+  duration = 18,
 }) {
   const items = Children.toArray(children).filter(Boolean);
   const scrollerRef = useRef(null);

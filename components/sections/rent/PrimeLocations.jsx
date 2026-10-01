@@ -37,7 +37,7 @@ export default function PrimeLocations() {
         </div>
 
         <div className="mt-10">
-          <CardMarquee duration={36}>
+          <CardMarquee duration={16}>
             {LOCATIONS.map((location) => (
               <LocationCard
                 key={location.name}

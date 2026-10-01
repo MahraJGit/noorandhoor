@@ -97,7 +97,7 @@ export default function PropertyCategories({ market = "buy" }) {
   }, [isReady, market, properties]);
 
   const copy = COPY[market] || COPY.buy;
-  const duration = Math.max(28, categories.length * 8);
+  const duration = Math.max(12, categories.length * 3.5);
 
   return (
     <section className="section-container">

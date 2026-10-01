@@ -41,7 +41,7 @@ export default function Locations() {
       </div>
 
       <div className="mt-8 lg:mt-12">
-        <CardMarquee duration={48}>
+        <CardMarquee duration={22}>
           {LOCATIONS.map((location) => (
             <LocationCard
               key={location.name}
