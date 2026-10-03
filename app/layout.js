@@ -1,29 +1,39 @@
-import { Montserrat, Abhaya_Libre, Cinzel, Josefin_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
+const montserrat = localFont({
+  src: "./fonts/montserrat.woff2",
+  weight: "100 900",
   variable: "--font-montserrat",
+  display: "swap",
 });
 
-const abhayaLibre = Abhaya_Libre({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const abhayaLibre = localFont({
+  src: [
+    { path: "./fonts/abhaya-libre-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/abhaya-libre-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/abhaya-libre-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/abhaya-libre-700.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/abhaya-libre-800.woff2", weight: "800", style: "normal" },
+  ],
   variable: "--font-abhaya-libre",
+  display: "swap",
 });
 
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const cinzel = localFont({
+  src: "./fonts/cinzel.woff2",
+  weight: "400 900",
   variable: "--font-cinzel",
+  display: "swap",
 });
 
-const josefinSans = Josefin_Sans({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
+const josefinSans = localFont({
+  src: "./fonts/josefin-sans.woff2",
+  weight: "100 700",
   variable: "--font-josefin-sans",
+  display: "swap",
 });
 
 export const metadata = {
