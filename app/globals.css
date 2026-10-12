@@ -374,19 +374,20 @@ a {
 
 /* Public article HTML body */
 .blog-article-content {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.875rem;
-  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9375rem;
+  line-height: 1.85;
 }
 
 @media (min-width: 640px) {
   .blog-article-content {
-    font-size: 1rem;
+    font-size: 1.0625rem;
+    line-height: 1.9;
   }
 }
 
 .blog-article-content > * + * {
-  margin-top: 1.1rem;
+  margin-top: 1.25rem;
 }
 
 .blog-article-content h1,
@@ -400,20 +401,30 @@ a {
   color: #fff;
   -webkit-text-fill-color: currentColor;
   line-height: 1.3;
-  margin-top: 1.75rem;
-  margin-bottom: 0.65rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0.85rem;
+  scroll-margin-top: 7rem;
+}
+
+.blog-article-content > h1:first-child,
+.blog-article-content > h2:first-child,
+.blog-article-content > h3:first-child {
+  margin-top: 0;
 }
 
 .blog-article-content h1 {
-  font-size: 1.65rem;
+  font-size: 1.75rem;
 }
 
 .blog-article-content h2 {
-  font-size: 1.4rem;
+  font-size: 1.45rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(186, 138, 68, 0.22);
 }
 
 .blog-article-content h3 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .blog-article-content ul {
@@ -427,21 +438,26 @@ a {
 }
 
 .blog-article-content li + li {
-  margin-top: 0.35rem;
+  margin-top: 0.45rem;
 }
 
 .blog-article-content blockquote {
   border-left: 3px solid #ba8a44;
-  padding-left: 1rem;
-  color: rgba(255, 255, 255, 0.65);
+  padding: 0.35rem 0 0.35rem 1.1rem;
+  color: rgba(255, 255, 255, 0.62);
   font-style: italic;
+  background: linear-gradient(
+    90deg,
+    rgba(186, 138, 68, 0.08),
+    transparent 70%
+  );
 }
 
 .blog-article-content pre {
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
   background: #171717;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.1rem;
   overflow-x: auto;
   font-size: 0.875rem;
 }
@@ -449,11 +465,18 @@ a {
 .blog-article-content a {
   color: #eec876;
   text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.blog-article-content a:hover {
+  color: #f3d59a;
 }
 
 .blog-article-content img {
   width: 100%;
   height: auto;
   border-radius: 1rem;
-  border: 1px solid rgba(186, 138, 68, 0.3);
+  border: 1px solid rgba(186, 138, 68, 0.28);
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
 }

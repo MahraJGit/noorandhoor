@@ -21,6 +21,7 @@ import ProjectDetailsFields from "@/components/admin/properties/ProjectDetailsFi
 import AmenitiesFields from "@/components/admin/properties/AmenitiesFields";
 import UnitsFields from "@/components/admin/properties/UnitsFields";
 import PaymentPlanFields from "@/components/admin/properties/PaymentPlanFields";
+import PropertySeoFields from "@/components/admin/properties/PropertySeoFields";
 import { useToast } from "@/components/admin/providers/ToastProvider";
 import useAdminProperties from "@/hooks/useAdminProperties";
 import {
@@ -80,6 +81,8 @@ const EMPTY_FORM = {
   paymentInstallments: "24",
   paymentStartDate: "",
   developers: [],
+  seoTitle: "",
+  seoDescription: "",
   ...projectDetailsToForm(DEFAULT_PROJECT_DETAILS),
 };
 
@@ -129,6 +132,8 @@ function toForm(property) {
     paymentInstallments: String(property.paymentInstallments ?? 24),
     paymentStartDate: property.paymentStartDate || "",
     developers: developersToForm(property.developers),
+    seoTitle: property.seoTitle || "",
+    seoDescription: property.seoDescription || "",
     ...projectDetailsToForm(property),
   };
 }
@@ -441,6 +446,8 @@ function PropertyEditor({
               placeholder="Type: Luxury Apartment"
             />
           </section>
+
+          <PropertySeoFields form={form} setField={setField} />
 
           <AmenitiesFields
             value={form.amenities}

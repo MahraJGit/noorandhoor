@@ -10,9 +10,9 @@ import FaqSection from "@/components/common/FaqSection";
 import PropertyJourneyCta from "@/components/sections/property/PropertyJourneyCta";
 
 export const metadata = {
-  title: "Developers | Noor and Hoor",
+  title: "Top UAE Real Estate Developers & Off-Plan Projects",
   description:
-    "Meet the trusted developers building landmark communities, luxury residences, and the UAE's highest value opportunities.",
+    "Explore trusted top-tier real estate developers in Dubai & UAE. Discover iconic off-plan projects, luxury residences, and verified investment opportunities",
 };
 
 export default function DevelopersPage() {
