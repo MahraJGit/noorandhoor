@@ -480,3 +480,117 @@ a {
   margin-top: 0.35rem;
   margin-bottom: 0.35rem;
 }
+
+.blog-article-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  padding: 0.12em 0.35em;
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.blog-article-content pre code {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+h3.blog-faq-heading {
+  text-align: left;
+  text-transform: none;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2vw + 0.85rem, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  -webkit-text-fill-color: transparent;
+}
+
+h3.blog-faq-question {
+  text-align: left;
+  text-transform: none;
+  font-family: var(--font-body);
+  font-size: inherit;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: #fff;
+  -webkit-text-fill-color: currentColor;
+}
+
+.blog-rich-editor code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.blog-rich-editor pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.blog-custom-html-node {
+  margin: 1rem 0;
+}
+
+.blog-custom-html-frame {
+  border: 1px solid rgba(186, 138, 68, 0.55);
+  border-radius: 0.85rem;
+  padding: 0.85rem;
+  background: #121212;
+}
+
+.blog-custom-html-node.is-selected .blog-custom-html-frame {
+  border-color: #eec876;
+  box-shadow: 0 0 0 1px rgba(238, 200, 118, 0.35);
+}
+
+.blog-custom-html,
+.blog-custom-html--preview {
+  overflow-x: auto;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.blog-custom-html table,
+.blog-article-content .blog-custom-html table,
+.blog-rich-editor .blog-custom-html table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.blog-custom-html th,
+.blog-custom-html td,
+.blog-article-content .blog-custom-html th,
+.blog-article-content .blog-custom-html td,
+.blog-rich-editor .blog-custom-html th,
+.blog-rich-editor .blog-custom-html td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-custom-html thead th,
+.blog-article-content .blog-custom-html thead th,
+.blog-rich-editor .blog-custom-html thead th {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 700;
+  border-color: #1d4ed8;
+}
+
+.blog-custom-html tbody tr:nth-child(even),
+.blog-article-content .blog-custom-html tbody tr:nth-child(even),
+.blog-rich-editor .blog-custom-html tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.blog-article-content .blog-custom-html {
+  margin: 0.35rem 0;
+}

@@ -9,6 +9,7 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import {
   Bold,
+  Code,
   Code2,
   Heading1,
   Heading2,
@@ -21,6 +22,8 @@ import {
   Quote,
   Underline as UnderlineIcon,
 } from "lucide-react";
+import CustomHtmlModal from "@/components/admin/blogs/CustomHtmlModal";
+import { CustomHtml } from "@/components/admin/blogs/customHtmlExtension";
 import { uploadInlineImage } from "@/lib/admin/data/blogImages";
 import { createClient } from "@/lib/supabase/client";
 import { cx } from "@/lib/admin/utils";
@@ -57,8 +60,7 @@ export default function RichTextEditor({
   placeholder = "Write your article...",
 }) {
   const imageInputRef = useRef(null);
-  const [htmlMode, setHtmlMode] = useState(false);
-  const [htmlDraft, setHtmlDraft] = useState(value || "");
+  const [htmlModalOpen, setHtmlModalOpen] = useState(false);
   const [uploadError, setUploadError] = useState("");
 
   const editor = useEditor({
@@ -66,7 +68,6 @@ export default function RichTextEditor({
     extensions: [
       StarterKit.configure({
         heading: { levels: [1, 2, 3] },
-        codeBlock: true,
       }),
       Underline,
       Link.configure({
@@ -74,6 +75,7 @@ export default function RichTextEditor({
         HTMLAttributes: { rel: "noopener noreferrer", target: "_blank" },
       }),
       Image.configure({ allowBase64: false }),
+      CustomHtml,
       Placeholder.configure({ placeholder }),
     ],
     content: value || "",
@@ -84,20 +86,17 @@ export default function RichTextEditor({
       },
     },
     onUpdate: ({ editor: current }) => {
-      const html = current.getHTML();
-      setHtmlDraft(html);
-      onChange?.(html);
+      onChange?.(current.getHTML());
     },
   });
 
   useEffect(() => {
-    if (!editor || htmlMode) return;
+    if (!editor) return;
     const current = editor.getHTML();
     if ((value || "") !== current) {
       editor.commands.setContent(value || "", { emitUpdate: false });
-      setHtmlDraft(value || "");
     }
-  }, [editor, value, htmlMode]);
+  }, [editor, value]);
 
   const setLink = () => {
     if (!editor) return;
@@ -127,16 +126,10 @@ export default function RichTextEditor({
     }
   };
 
-  const toggleHtmlMode = () => {
+  const insertCustomHtml = (html) => {
     if (!editor) return;
-    if (htmlMode) {
-      editor.commands.setContent(htmlDraft || "", { emitUpdate: false });
-      onChange?.(htmlDraft || "");
-      setHtmlMode(false);
-      return;
-    }
-    setHtmlDraft(editor.getHTML());
-    setHtmlMode(true);
+    editor.chain().focus().insertCustomHtml(html).run();
+    setHtmlModalOpen(false);
   };
 
   return (
@@ -152,7 +145,7 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Bold"
             active={editor?.isActive("bold")}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() => editor.chain().focus().toggleBold().run()}
           >
             <Bold className="h-4 w-4" strokeWidth={2.4} />
@@ -160,7 +153,7 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Italic"
             active={editor?.isActive("italic")}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() => editor.chain().focus().toggleItalic().run()}
           >
             <Italic className="h-4 w-4" strokeWidth={2.4} />
@@ -168,7 +161,7 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Underline"
             active={editor?.isActive("underline")}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() => editor.chain().focus().toggleUnderline().run()}
           >
             <UnderlineIcon className="h-4 w-4" strokeWidth={2.4} />
@@ -176,7 +169,7 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Heading 1"
             active={editor?.isActive("heading", { level: 1 })}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 1 }).run()
             }
@@ -186,7 +179,7 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Heading 2"
             active={editor?.isActive("heading", { level: 2 })}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 2 }).run()
             }
@@ -196,7 +189,7 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Heading 3"
             active={editor?.isActive("heading", { level: 3 })}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 3 }).run()
             }
@@ -206,7 +199,7 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Bullet list"
             active={editor?.isActive("bulletList")}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() => editor.chain().focus().toggleBulletList().run()}
           >
             <List className="h-4 w-4" />
@@ -214,7 +207,7 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Numbered list"
             active={editor?.isActive("orderedList")}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() => editor.chain().focus().toggleOrderedList().run()}
           >
             <ListOrdered className="h-4 w-4" />
@@ -222,24 +215,32 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Quote"
             active={editor?.isActive("blockquote")}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() => editor.chain().focus().toggleBlockquote().run()}
           >
             <Quote className="h-4 w-4" />
           </ToolbarButton>
           <ToolbarButton
+            label="Inline code"
+            active={editor?.isActive("code")}
+            disabled={!editor}
+            onClick={() => editor.chain().focus().toggleCode().run()}
+          >
+            <Code className="h-4 w-4" />
+          </ToolbarButton>
+          <ToolbarButton
             label="Code block"
             active={editor?.isActive("codeBlock")}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           >
             <Code2 className="h-4 w-4" />
           </ToolbarButton>
           <ToolbarButton
-            label="HTML"
-            active={htmlMode}
+            label="Insert custom HTML"
+            active={htmlModalOpen}
             disabled={!editor}
-            onClick={toggleHtmlMode}
+            onClick={() => setHtmlModalOpen(true)}
           >
             <span className="px-0.5 text-[11px] font-bold tracking-wide">
               HTML
@@ -248,14 +249,14 @@ export default function RichTextEditor({
           <ToolbarButton
             label="Link"
             active={editor?.isActive("link")}
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={setLink}
           >
             <Link2 className="h-4 w-4" />
           </ToolbarButton>
           <ToolbarButton
             label="Image"
-            disabled={!editor || htmlMode}
+            disabled={!editor}
             onClick={() => imageInputRef.current?.click()}
           >
             <ImageIcon className="h-4 w-4" />
@@ -263,19 +264,7 @@ export default function RichTextEditor({
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto bg-[#141414]">
-          {htmlMode ? (
-            <textarea
-              value={htmlDraft}
-              onChange={(event) => {
-                setHtmlDraft(event.target.value);
-                onChange?.(event.target.value);
-              }}
-              className="min-h-[280px] w-full resize-none bg-transparent px-5 py-4 font-mono text-sm leading-6 text-white/85 outline-none"
-              spellCheck={false}
-            />
-          ) : (
-            <EditorContent editor={editor} />
-          )}
+          <EditorContent editor={editor} />
         </div>
       </div>
 
@@ -288,6 +277,12 @@ export default function RichTextEditor({
           onPickImage(event.target.files?.[0]);
           event.target.value = "";
         }}
+      />
+
+      <CustomHtmlModal
+        open={htmlModalOpen}
+        onCancel={() => setHtmlModalOpen(false)}
+        onInsert={insertCustomHtml}
       />
 
       {(uploadError || error) && (

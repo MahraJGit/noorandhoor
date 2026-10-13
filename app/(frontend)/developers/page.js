@@ -8,12 +8,14 @@ import DevelopersLeadForm from "@/components/sections/developers/DevelopersLeadF
 import DevelopersWhyChoose from "@/components/sections/developers/DevelopersWhyChoose";
 import FaqSection from "@/components/common/FaqSection";
 import PropertyJourneyCta from "@/components/sections/property/PropertyJourneyCta";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Top UAE Real Estate Developers & Off-Plan Projects",
   description:
-    "Explore trusted top-tier real estate developers in Dubai & UAE. Discover iconic off-plan projects, luxury residences, and verified investment opportunities",
-};
+    "Explore trusted top-tier real estate developers in Dubai & UAE. Discover iconic off-plan projects, luxury residences, and verified investment opportunities.",
+  path: "/developers",
+});
 
 export default function DevelopersPage() {
   return (

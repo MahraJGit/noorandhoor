@@ -97,9 +97,9 @@ export const OFF_PLAN_CATEGORIES = {
     heroTitle: "Reserve Your UAE Apartment Before It's Built",
     heroDescription:
       "Explore off-plan apartments in Dubai's fastest growing communities and buy directly from trusted developers before construction is complete.",
-    metaTitle: "Off Plan Apartments in UAE | Noor and Hoor",
+    metaTitle: "Buy Off-Plan Apartments in Dubai | Pre-Launch Prices",
     metaDescription:
-      "Explore off-plan apartments in Dubai's fastest growing communities and buy directly from trusted developers before construction is complete.",
+      "Browse 50+ off-plan apartments in Dubai from top developers. Flexible 1–8 year payment plans, 15% booking deposit. Talk to our Business Bay experts today.",
     ctaHeading: "Want To Buy Before Prices Rise At Completion?",
     ctaDescription:
       "Secure your apartment early, with flexible payment plans and pre-launch pricing before construction is complete.",
@@ -145,9 +145,9 @@ export const OFF_PLAN_CATEGORIES = {
     heroTitle: "Reserve Your Future Villa In UAE",
     heroDescription:
       "Browse off-plan villas across Dubai's most exclusive communities, purchased directly from trusted developers before construction is complete.",
-    metaTitle: "Off Plan Villas in UAE | Noor and Hoor",
+    metaTitle: "Off-Plan Villas for Sale in Dubai & UAE | Noor & Hoor",
     metaDescription:
-      "Browse off-plan villas across Dubai's most exclusive communities, purchased directly from trusted developers before construction is complete.",
+      "Explore exclusive off-plan villas for sale in Dubai and the UAE. Browse luxury communities, flexible payment plans, and top developer projects.",
     ctaHeading: "Ready To Reserve Your Off-Plan Villa?",
     ctaDescription:
       "Secure your villa early, with flexible payment plans and the chance to customize your future home before it's built.",
@@ -181,9 +181,9 @@ export const OFF_PLAN_CATEGORIES = {
     heroTitle: "Invest In Dubai's Commercial Future",
     heroDescription:
       "Discover off-plan commercial projects in Dubai's leading business areas and invest directly with trusted developers before completion.",
-    metaTitle: "Off Plan Commercial | Noor and Hoor",
+    metaTitle: "Off-Plan Commercial Property in Dubai | Offices & Retail",
     metaDescription:
-      "Discover off-plan commercial projects in Dubai's leading business areas and invest directly with trusted developers before completion.",
+      "Invest in off-plan commercial property in Dubai's top business hubs. 50+ projects, 1-8 year payment plans, 15% booking deposit. Speak to Noor & Hoor experts.",
     ctaHeading: "Want To Secure Prime Commercial Space Early?",
     ctaDescription:
       "Secure your commercial space early, with flexible payment plans and pre-launch pricing before construction is complete.",
@@ -217,9 +217,9 @@ export const OFF_PLAN_CATEGORIES = {
     heroTitle: "Own Dubai's Skyline From Above",
     heroDescription:
       "Find luxury off-plan penthouses across Dubai's famous towers and waterfront addresses, purchased directly from trusted developers before completion.",
-    metaTitle: "Off Plan Penthouses in UAE | Noor and Hoor",
+    metaTitle: "Off-Plan Penthouses in UAE | Noor & Hoor Properties",
     metaDescription:
-      "Find luxury off-plan penthouses across Dubai's famous towers and waterfront addresses, purchased directly from trusted developers before completion.",
+      "Explore off-plan penthouses in UAE with Noor & Hoor Properties. Discover luxury properties, flexible payment plans and investment opportunities.",
     ctaHeading: "Ready To Claim Your Place Above The City?",
     ctaDescription:
       "Whether you're seeking a private sky sanctuary or a landmark investment, we connect you with penthouses still in the earliest, most exclusive stage of development.",
@@ -253,9 +253,9 @@ export const OFF_PLAN_CATEGORIES = {
     heroTitle: "Find Your Family's Future Home In UAE",
     heroDescription:
       "Discover new off-plan townhouses in Dubai's most desirable family communities, secured directly from trusted developers before completion.",
-    metaTitle: "Off Plan Townhouses in UAE | Noor and Hoor",
+    metaTitle: "Off-Plan Townhouses in UAE | Noor & Hoor Properties",
     metaDescription:
-      "Discover new off-plan townhouses in Dubai's most desirable family communities, secured directly from trusted developers before completion.",
+      "Explore off-plan townhouses for sale in the UAE with Noor & Hoor Properties. Compare residential options and discover property investment opportunities.",
     ctaHeading: "Looking For A Home That Grows With You?",
     ctaDescription:
       "Reserve your townhouse ahead of launch, with flexible payment plans and early pricing before construction begins.",

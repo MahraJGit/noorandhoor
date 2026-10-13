@@ -13,12 +13,14 @@ import FaqSection from "@/components/common/FaqSection";
 import TrustedDeveloperPartners from "@/components/sections/buy/TrustedDeveloperPartners";
 import LeadGenerationForm from "@/components/sections/buy/LeadGenerationForm";
 import PropertyJourneyCta from "@/components/sections/property/PropertyJourneyCta";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Rent Properties | Noor and Hoor",
   description:
     "We connect you with verified landlords and quality rentals across the UAE, making renting simple and stress-free.",
-};
+  path: "/rent",
+});
 
 export default function RentPage() {
   return (

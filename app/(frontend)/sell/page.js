@@ -11,12 +11,14 @@ import FaqSection from "@/components/common/FaqSection";
 import TrustedDeveloperPartners from "@/components/sections/buy/TrustedDeveloperPartners";
 import LeadGenerationForm from "@/components/sections/buy/LeadGenerationForm";
 import PropertyJourneyCta from "@/components/sections/property/PropertyJourneyCta";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Sell Properties | Noor and Hoor",
   description:
     "A trusted network of serious buyers, expert pricing insight, and a seamless process from listing to sale.",
-};
+  path: "/sell",
+});
 
 export default function SellPage() {
   return (

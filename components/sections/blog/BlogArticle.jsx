@@ -33,9 +33,9 @@ function FaqSection({ faqs }) {
     <section className="mt-14 border-t border-white/8 pt-12 sm:mt-16 sm:pt-14">
       <div className="mb-6">
         <p className="section-sub-heading">FAQs</p>
-        <h2 className="detail-section-title text-gold-gradient mt-2 text-2xl font-semibold sm:text-3xl">
+        <h3 className="blog-faq-heading text-gold-gradient mt-2">
           Frequently Asked Questions
-        </h2>
+        </h3>
       </div>
       <div className="space-y-3">
         {faqs.map((item, index) => (
@@ -43,10 +43,12 @@ function FaqSection({ faqs }) {
             key={`faq-${index}`}
             className="group rounded-2xl border border-white/10 bg-[#171717] px-5 py-4 transition-colors open:border-[#ba8a44]/40"
           >
-            <summary className="cursor-pointer list-none text-sm font-semibold text-white marker:content-none sm:text-base [&::-webkit-details-marker]:hidden">
+            <summary className="cursor-pointer list-none marker:content-none [&::-webkit-details-marker]:hidden">
               <span className="flex items-start justify-between gap-4">
-                {item.question}
-                <span className="mt-0.5 text-[#ba8a44] transition duration-300 group-open:rotate-45">
+                <h3 className="blog-faq-question m-0 text-left text-sm font-semibold text-white sm:text-base">
+                  {item.question}
+                </h3>
+                <span className="mt-0.5 shrink-0 text-[#ba8a44] transition duration-300 group-open:rotate-45">
                   +
                 </span>
               </span>
@@ -82,6 +84,14 @@ export default function BlogArticle({ post, related = [] }) {
             <p className="text-xs font-medium text-[#ba8a44] sm:text-sm">
               {post.date}
             </p>
+            {post.authorName ? (
+              <>
+                <span className="h-1 w-1 rounded-full bg-white/25" aria-hidden />
+                <p className="text-xs font-medium text-white/65 sm:text-sm">
+                  By {post.authorName}
+                </p>
+              </>
+            ) : null}
           </div>
 
           <h1 className="detail-heading text-gold-gradient mt-5 sm:mt-6">
@@ -98,7 +108,7 @@ export default function BlogArticle({ post, related = [] }) {
         <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[#ba8a44]/25 sm:mt-10 sm:rounded-3xl">
           <MediaImage
             src={post.image}
-            alt={post.title}
+            alt={post.imageAlt || post.title}
             fill
             priority
             sizes="(max-width: 1280px) 100vw, 1280px"

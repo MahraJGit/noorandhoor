@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import BlogArticle from "@/components/sections/blog/BlogArticle";
 import { getPublishedPostBySlug, getRelatedPosts } from "@/lib/blog/queries";
 import { buildBlogJsonLd, buildBlogMetadata } from "@/lib/blog/seo";
+import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -10,9 +11,12 @@ export async function generateMetadata({ params }) {
   const post = await getPublishedPostBySlug(slug);
 
   if (!post) {
-    return {
+    return buildPageMetadata({
       title: "Article | Noor & Hoor Properties",
-    };
+      description:
+        "Read the latest UAE real estate insights from Noor & Hoor Properties.",
+      path: `/blog/${slug}`,
+    });
   }
 
   return buildBlogMetadata(post);

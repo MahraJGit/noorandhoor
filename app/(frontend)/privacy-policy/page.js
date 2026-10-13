@@ -1,11 +1,13 @@
 import PropertyHero from "@/components/common/PropertyHero";
 import InfoPage from "@/components/ui/InfoPage";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Privacy Policy | Noor & Hoor Properties",
   description:
     "Read the Noor & Hoor Properties privacy policy and learn how we handle personal information.",
-};
+  path: "/privacy-policy",
+});
 
 const sections = [
   {

@@ -18,15 +18,15 @@ import Blogs from "@/components/sections/home/Blogs";
 import FaqSection from "@/components/common/FaqSection";
 import ListYourProperty from "@/components/sections/home/ListYourProperty";
 import GetStarted from "@/components/sections/home/GetStarted";
-import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
+import { SITE_DESCRIPTION, SITE_NAME, buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: `${SITE_NAME} | Explore Your Dream Property in UAE`,
   description: SITE_DESCRIPTION,
-  alternates: { canonical: "/" },
-};
+  path: "/",
+});
 
 export default function Home() {
   return (

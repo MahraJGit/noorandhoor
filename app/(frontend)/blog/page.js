@@ -3,15 +3,20 @@ import BlogListing from "@/components/sections/blog/BlogListing";
 import { BLOG_CATEGORIES } from "@/components/sections/blog/blogData";
 import { getPublishedPosts } from "@/lib/blog/queries";
 import { tagSlug } from "@/lib/blog/tags";
-import { getCategoryFromSearchParams, getPageFromSearchParams } from "@/lib/seo";
+import {
+  buildPageMetadata,
+  getCategoryFromSearchParams,
+  getPageFromSearchParams,
+} from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Blog | Noor & Hoor Properties",
   description:
     "Stay ahead with the latest market trends, buying tips, and neighbourhood guides from Noor & Hoor Properties.",
-};
+  path: "/blog",
+});
 
 async function getTagFromSearchParams(searchParams) {
   const params = await searchParams;

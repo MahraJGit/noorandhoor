@@ -2,12 +2,14 @@ import { Building2, Handshake, KeyRound } from "lucide-react";
 import PropertyHero from "@/components/common/PropertyHero";
 import Button from "@/components/ui/Button";
 import { CONTACT_FORM_HREF } from "@/components/sections/contact/contactData";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "About Us | Noor & Hoor Properties",
   description:
     "Trusted UAE real estate experts helping buyers, sellers, and investors find the right residential, commercial, and off-plan properties.",
-};
+  path: "/about-us",
+});
 
 const values = [
   {

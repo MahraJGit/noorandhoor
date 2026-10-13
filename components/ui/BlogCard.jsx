@@ -4,7 +4,7 @@ import BlogTags from "@/components/ui/BlogTags";
 import MediaImage from "@/components/ui/MediaImage";
 
 const BlogCard = ({ blog }) => {
-  const { image, title, date, excerpt, slug, category, tags } = blog;
+  const { image, imageAlt, title, date, excerpt, slug, category, tags } = blog;
   const href = slug ? `/blog/${slug}` : undefined;
 
   return (
@@ -17,7 +17,7 @@ const BlogCard = ({ blog }) => {
           {image ? (
             <MediaImage
               src={image}
-              alt={title}
+              alt={imageAlt || title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover"

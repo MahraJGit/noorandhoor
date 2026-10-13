@@ -47,14 +47,9 @@ export const metadata = {
     type: "website",
     locale: "en_AE",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | UAE Real Estate`,
-    description: SITE_DESCRIPTION,
-    url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | UAE Real Estate`,
-    description: SITE_DESCRIPTION,
   },
   robots: {
     index: true,

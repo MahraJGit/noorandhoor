@@ -12,12 +12,14 @@ import FaqSection from "@/components/common/FaqSection";
 import TrustedDeveloperPartners from "@/components/sections/buy/TrustedDeveloperPartners";
 import LeadGenerationForm from "@/components/sections/buy/LeadGenerationForm";
 import PropertyJourneyCta from "@/components/sections/property/PropertyJourneyCta";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Buy Properties | Noor and Hoor",
+export const metadata = buildPageMetadata({
+  title: "Buy Apartments, Villas & Penthouses in Dubai",
   description:
-    "Discover, compare, and secure premium UAE properties that support your lifestyle and long term investment goals.",
-};
+    "Browse 1000+ premium properties for sale in Dubai & UAE. Buy apartments, villas, townhouses & penthouses with expert guidance, even remotely from abroad.",
+  path: "/buy",
+});
 
 export default function BuyPage() {
   return (

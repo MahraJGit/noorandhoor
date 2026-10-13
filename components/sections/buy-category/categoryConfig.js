@@ -71,9 +71,9 @@ export const BUY_CATEGORIES = {
     heroTitle: "Find Your Perfect Apartment In The UAE",
     heroDescription:
       "Whether you're buying your first home or expanding your portfolio, discover UAE apartments that fit your vision and budget.",
-    metaTitle: "Buy Apartments | Noor and Hoor",
+    metaTitle: "Apartments for Sale in Dubai & UAE",
     metaDescription:
-      "Whether you're buying your first home or expanding your portfolio, discover UAE apartments that fit your vision and budget.",
+      "Browse apartments for sale in Dubai & UAE. From first homes to investment units, find the right apartment with expert guidance from Noor and Hoor Properties.",
     ctaHeading: "Ready to Find Your Ideal Apartment in the UAE?",
     ctaDescription:
       "Browse our curated listings and talk to our team — your perfect apartment is closer than you think.",
@@ -119,9 +119,9 @@ export const BUY_CATEGORIES = {
     heroTitle: "Find Your Ideal Townhouses In The UAE",
     heroDescription:
       "More space, more privacy, more room to grow. Discover townhouses designed for families who want a home, not just an apartment.",
-    metaTitle: "Buy Town Houses | Noor and Hoor",
+    metaTitle: "Dubai Townhouses for Sale | 2, 3 & 4 Bedroom",
     metaDescription:
-      "More space, more privacy, more room to grow. Discover townhouses designed for families who want a home, not just an apartment.",
+      "Looking for a family home with more space? Explore townhouses for sale in Dubai's best communities, with expert guidance and remote buying support.",
     ctaHeading: "Ready to Find Your Family's Next Home?",
     ctaDescription:
       "Explore townhouses built for space and community, and talk to our team to get started.",
@@ -167,9 +167,9 @@ export const BUY_CATEGORIES = {
     heroTitle: "Own The Top Floor Of The UAE",
     heroDescription:
       "Unmatched views, private elevators, and space that redefines luxury. Discover penthouses built for those who expect nothing less than the best.",
-    metaTitle: "Buy Penthouses | Noor and Hoor",
+    metaTitle: "Dubai Penthouses for Sale | Noor and Hoor Properties",
     metaDescription:
-      "Unmatched views, private elevators, and space that redefines luxury. Discover penthouses built for those who expect nothing less than the best.",
+      "Find your dream penthouse in Dubai & UAE. Private terraces, panoramic views and premium finishes. Remote buying support available for overseas buyers.",
     ctaHeading: "Ready to Own the View Everyone Else Is Chasing?",
     ctaDescription:
       "Explore penthouses built for those who settle for nothing less, and talk to our team today.",

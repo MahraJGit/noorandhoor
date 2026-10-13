@@ -35,6 +35,8 @@ export const EMPTY_BLOG_FORM = {
   content: "",
   tags: [],
   coverImage: "",
+  coverAlt: "",
+  authorName: "",
   metaTitle: "",
   metaDescription: "",
   focusKeyword: "",
@@ -53,6 +55,8 @@ export function blogToForm(blog) {
     content: blog.content,
     tags: blog.tags?.length ? blog.tags : [],
     coverImage: blog.coverImage,
+    coverAlt: blog.coverAlt || "",
+    authorName: blog.authorName || "",
     metaTitle: blog.metaTitle || "",
     metaDescription: blog.metaDescription || "",
     focusKeyword: blog.focusKeyword || "",
@@ -218,6 +222,24 @@ export default function BlogEditor({
               requiredHeight={BLOG_COVER_HEIGHT}
               maxBytes={MAX_BLOG_COVER_IMAGE_BYTES}
               aspectClassName="aspect-[16/9]"
+            />
+            <TextField
+              id="coverAlt"
+              label="Cover image alt text"
+              value={form.coverAlt}
+              onChange={(event) => setField("coverAlt", event.target.value)}
+              error={errors.coverAlt}
+              placeholder="Describe the cover image"
+              tooltip="Accessibility and SEO text for the cover image. Falls back to the title if blank."
+            />
+            <TextField
+              id="authorName"
+              label="Author name"
+              value={form.authorName}
+              onChange={(event) => setField("authorName", event.target.value)}
+              error={errors.authorName}
+              placeholder="e.g. Shakeeb"
+              tooltip="Shown on the article page and in structured data."
             />
             <SelectField
               id="category"

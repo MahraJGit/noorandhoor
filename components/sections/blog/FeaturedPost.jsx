@@ -12,7 +12,7 @@ export default function FeaturedPost({ post }) {
       <div className="relative aspect-[16/9] w-full bg-[#0d0d0d] xl:col-start-1 xl:row-start-1">
         <MediaImage
           src={post.image}
-          alt=""
+          alt={post.imageAlt || post.title}
           fill
           priority
           sizes="(max-width: 1280px) 100vw, 720px"
