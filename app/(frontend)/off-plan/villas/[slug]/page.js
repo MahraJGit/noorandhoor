@@ -4,6 +4,8 @@ import { generateListingItemMetadata } from "@/lib/seo";
 
 const category = getOffPlanCategory("villas");
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return [];
 }
